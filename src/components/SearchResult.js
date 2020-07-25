@@ -5,19 +5,20 @@ import { NavLink } from 'react-router-dom'
 
 const SearchResult = () => {
     const foodList = useSelector(state => state.foods.foodList)
+
     const ListOfFood = foodList.length ? (
         <>
             {foodList.map(list => {
                 return(
                     <div className='col-lg-3 mb-3' key={uuid()}>
-                        <NavLink to={list.recipe.url}>
+                        <a href={list.recipe.url} target="_blank">
                             <div className="card">
                                 <img className='img-fluid' src={list.recipe.image} alt="recipe-img"/>    
                                 <div className="card-body">
                                     {list.recipe.label}
                                 </div>
                             </div>
-                        </NavLink>
+                        </a>
                     </div>
                 )
             })}
